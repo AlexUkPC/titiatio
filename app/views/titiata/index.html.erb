@@ -1,27 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Titiata</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Titiatum</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @titiata.each do |titiatum| %>
-      <tr>
-        <td><%= titiatum.titiatum %></td>
-        <td><%= link_to 'Show', titiatum %></td>
-        <td><%= link_to 'Edit', edit_titiatum_path(titiatum) %></td>
-        <td><%= link_to 'Destroy', titiatum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Titiatum', new_titiatum_path %>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <% if user_signed_in? %>
+        <%= render 'profile' %>
+      <% else%>
+        <%= render 'trends' %>
+      <% end %>
+      <%= render 'feed' %>
+      <%= render 'who-to-follow' %>  
+    </div>
+  </div>
+</section>

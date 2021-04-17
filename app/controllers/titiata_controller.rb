@@ -1,9 +1,10 @@
 class TitiataController < ApplicationController
   before_action :set_titiatum, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /titiata or /titiata.json
   def index
-    @titiata = Titiatum.all
+    @titiatiums = Titiatium.all.order("created_at DESC")
+    @titiatium = Titiatium.new
   end
 
   # GET /titiata/1 or /titiata/1.json
@@ -12,7 +13,7 @@ class TitiataController < ApplicationController
 
   # GET /titiata/new
   def new
-    @titiatum = Titiatum.new
+    @titiatum = current_user.titiata.build
   end
 
   # GET /titiata/1/edit
@@ -21,11 +22,11 @@ class TitiataController < ApplicationController
 
   # POST /titiata or /titiata.json
   def create
-    @titiatum = Titiatum.new(titiatum_params)
+    @titiatum = current_user.titiata.build(titiatum_params)
 
     respond_to do |format|
       if @titiatum.save
-        format.html { redirect_to @titiatum, notice: "Titiatum was successfully created." }
+        format.html { redirect_to root_path, notice: "Titiatum was successfully created." }
         format.json { render :show, status: :created, location: @titiatum }
       else
         format.html { render :new, status: :unprocessable_entity }
