@@ -21,7 +21,14 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+# A modern CSS framework based on Flexbox
+gem 'bulma-rails', '~> 0.8.2' #(https://rubygems.org/gems/bulma-rails)
+# Forms made easy!
+gem 'simple_form', '~> 5.0', '>= 5.0.2' #(https://rubygems.org/gems/simple_form)
+# A configurable and documented Rails view helper for adding gravatars into your Rails application.
+gem 'gravatar_image_tag', '~> 1.2' #(https://rubygems.org/gems/gravatar_image_tag)
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 4.7', '>= 4.7.1' #(https://rubygems.org/gems/devise)
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
