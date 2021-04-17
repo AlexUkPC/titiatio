@@ -7,34 +7,34 @@
                 </p>
             </figure>
             <div class="media-content">
-                <%= render 'titiatium/form' %>	
+                <%= render 'titiata/form' %>	
             </div>
         </article>
     <% end %>
-    <% @titiatiums.each do | titiatium | %>
+    <% @titiata.each do | titiatum | %>
         <div class="box">
         <article class="media">
             <div class="media-left">
                 <figure class="image is-64x64">
-                    <%= gravatar_image_tag(titiatium.user.email, size: 64, alt: titiatium.user.name, :gravatar => { :secure => true, :d => "mp" }) %>
+                    <%= gravatar_image_tag(titiatum.user.email, size: 64, alt: titiatum.user.name, :gravatar => { :secure => true, :d => "mp" }) %>
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content">
-                    <strong><%= titiatium.user.name %></strong><br/>
-                            <small><%= titiatium.user.username %></small><br/>
-                    <p><%= titiatium.titiatium %></p>
+                    <strong><%= titiatum.user.name %></strong><br/>
+                            <small><%= titiatum.user.username %></small><br/>
+                    <p><%= titiatum.titiatum %></p>
                 </div>
                 <% if user_signed_in? %>
                     <nav class="level">
                         <div class="level-left is-mobile">
-                            <%= link_to titiatium, class: "level-item" do %>
+                            <%= link_to titiatum, class: "level-item" do %>
                                 <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
                             <% end %>
-                            <%= link_to edit_titiatium_path(titiatium),class: "level-item" do %>
+                            <%= link_to edit_titiatum_path(titiatum),class: "level-item" do %>
                                 <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
                             <% end %>
-                            <%= link_to titiatium,method: :delete, data:{confirm: "Are you sure you want to delete this titiatum?"} do %>
+                            <%= link_to titiatum,method: :delete, data:{confirm: "Are you sure you want to delete this titiatum?"} do %>
                                 <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
                             <% end %>
                         </div>

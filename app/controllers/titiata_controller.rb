@@ -3,8 +3,8 @@ class TitiataController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   # GET /titiata or /titiata.json
   def index
-    @titiatiums = Titiatium.all.order("created_at DESC")
-    @titiatium = Titiatium.new
+    @titiata = Titiatum.all.order("created_at DESC")
+    @titiatum = Titiatum.new
   end
 
   # GET /titiata/1 or /titiata/1.json
