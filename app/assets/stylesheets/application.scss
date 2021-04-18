@@ -13,17 +13,39 @@
  *= require_tree .
  *= require_self
  */
- @import "bulma";
- .navbar-brand .title{
-    color: white;
-  }
+ $brown: #ae9472;
 
-  .image{
+ $info: #64862b;
+ $primary: $brown;
+ $link: $primary;
+
+ @import "bulma";
+
+.navbar-brand .title{
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.image{
+  border-radius: 50%;
+  img {
     border-radius: 50%;
-    img {
-      border-radius: 50%;
-    }
   }
-  .notification:not(:last-child){
-    margin-bottom: 0;
-  }
+}
+.notification:not(:last-child){
+  margin-bottom: 0;
+}
+html,body{
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+.notification{
+  border-radius: 0;
+}
+.visible {
+  display: block !important;
+}
+.avem-icon{
+  margin-right: 10px;
+  height: 15px;
+}

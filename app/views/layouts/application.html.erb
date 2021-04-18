@@ -12,20 +12,11 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="notification is-primary global-notification">
-        <p class="notice"><%= notice %></p>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="notification is-danger global-notification">
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>
-    <nav class="navbar is-info">
+    
+    <nav class="navbar is-primary">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class="title is-5">Titiatio</h1>
+          <img src=<%= image_path('titiatio.png') %> alt="Titiatio" class="title is-5">      
         <% end %>
         <div class="navbar-burger burger" data-target="navbarExample">
           <span></span>
@@ -38,21 +29,24 @@
           <div class="navbar-item">
             <div class="field is-grouped">
               <p class="control">
-                <%= link_to 'New Titiatium',root_path,class: "button is-info is-inverted" %>
+                <%= link_to root_path,class: "button is-primary is-inverted" do %>
+                  <span><img src=<%= image_path('avem.png') %> class="avem-icon"></span>
+                  <span>New Titiatium</span>
+                <% end %>
               </p>
               <% if user_signed_in? %>
                   <p class="control">
-                    <%= link_to current_user.name, edit_user_registration_path,class: "button is-info" %>
+                    <%= link_to current_user.name, edit_user_registration_path,class: "button is-primary" %>
                   </p>
                   <p class="control">
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete,class: "button is-info" %>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete,class: "button is-primary" %>
                   </p>
               <% else %>
                   <p class="control">
-                    <%= link_to 'Sign In',new_user_session_path,class: "button is-info" %>
+                    <%= link_to 'Sign In',new_user_session_path,class: "button is-primary" %>
                   </p>
                   <p class="control">
-                    <%= link_to 'Sign Up',new_user_registration_path,class: "button is-info" %>
+                    <%= link_to 'Sign Up',new_user_registration_path,class: "button is-primary" %>
                   </p>
               <% end %>
             </div>
@@ -60,7 +54,16 @@
         </div>
       </div>
     </nav>
-
+    <% if flash[:notice] %>
+      <div class="notification is-info global-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
