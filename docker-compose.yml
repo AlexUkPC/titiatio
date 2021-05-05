@@ -1,0 +1,52 @@
+version: "3"
+services:
+  web_titiatio:
+    build:
+      context: .
+      args:
+        USER_ID: "${USER_ID:-1000}"
+        GROUP_ID: "${GROUP_ID:-1000}"
+    ports:
+      - "3016:3000"
+    volumes: 
+      - ./titiatio:/opt/app
+      - gem_cache_titiatio:/gems
+    env_file: 
+      - .env/development/database_titiatio
+      - .env/development/web_titiatio
+    environment: 
+      - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server_titiatio
+    networks:
+      - network
+  webpack_dev_server_titiatio:
+    build:
+      context: .
+      args:
+        USER_ID: "${USER_ID:-1000}"
+        GROUP_ID: "${GROUP_ID:-1000}"
+    command: ./bin/webpack-dev-server
+    ports: 
+      - "3051:3051"
+    volumes: 
+      - ./titiatio:/opt/app
+      - gem_cache_titiatio:/gems
+    env_file: 
+      - .env/development/database_titiatio
+      - .env/development/web_titiatio
+    environment: 
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    networks:
+      - network
+  database_titiatio:
+    image: postgres
+    env_file: 
+      - .env/development/database_titiatio
+    volumes: 
+      - db_data_titiatio:/var/lib/postgresql/data
+    networks:
+      - network
+volumes: 
+  db_data_titiatio:
+  gem_cache_titiatio:
+networks:
+  network:
