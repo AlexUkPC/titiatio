@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('titiatio-favicon-192x192.png') %>
   </head>
 
   <body>
@@ -16,7 +17,7 @@
     <nav class="navbar is-primary">
       <div class="navbar-brand">
         <%= link_to root_path, class: "navbar-item" do %>
-          <img src=<%= image_path('titiatio.png') %> alt="Titiatio" class="title is-5">      
+          <img src=<%= image_path('titiatio-logo-brawn-text-contour-1000x220.png') %> alt="Titiatio" class="title is-5">      
         <% end %>
         <div class="navbar-burger burger" data-target="navbarExample">
           <span></span>
@@ -30,7 +31,7 @@
             <div class="field is-grouped">
               <p class="control">
                 <%= link_to root_path,class: "button is-primary is-inverted" do %>
-                  <span><img src=<%= image_path('avem.png') %> class="avem-icon"></span>
+                  <span><img src=<%= image_path('titiatio-favicon-192x192.png') %> class="avem-icon"></span>
                   <span>New Titiatium</span>
                 <% end %>
               </p>
