@@ -7,7 +7,7 @@ services:
         USER_ID: "${USER_ID:-1000}"
         GROUP_ID: "${GROUP_ID:-1000}"
     ports:
-      - "3016:3000"
+      - "3015:3000"
     volumes: 
       - ./titiatio:/opt/app
       - gem_cache_titiatio:/gems
@@ -26,7 +26,7 @@ services:
         GROUP_ID: "${GROUP_ID:-1000}"
     command: ./bin/webpack-dev-server
     ports: 
-      - "3051:3051"
+      - "4015:4015"
     volumes: 
       - ./titiatio:/opt/app
       - gem_cache_titiatio:/gems
